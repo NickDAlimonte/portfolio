@@ -1,4 +1,10 @@
-h1{
-    font-size: 10em;
-    color: black;
+table, th, td{
+    grid-template-columns: repeat(7, 1fr);
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+table{
+    place-self: center;
+    width: 80%;
 }
