@@ -63,6 +63,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "allowedHosts": ["nickdalimonte.com"],
+          },
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
