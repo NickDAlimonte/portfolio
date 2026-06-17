@@ -39,7 +39,7 @@
                     <td class="table-cell">
 
                         <span>{{days}}</span>
-                        @if(days === currentDate.getDate()){
+                        @if(getMonthName(currentDate.getMonth()) == selectedDate.toLocaleString('default', {month: 'long'}) && days === selectedDate.getDate()){
                             <p>Today!</p>
                         }
                     </td>

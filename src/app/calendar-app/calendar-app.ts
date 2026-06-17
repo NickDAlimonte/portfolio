@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class CalendarApp {
   currentDate: Date = new Date();
+  selectedDate: Date = new Date();
   selectedYear = 0;
   selectedMonth = ""
 
@@ -22,13 +23,13 @@ export class CalendarApp {
   }
 
   selectYear(number: number) {
-    this.currentDate.setFullYear(number)
-    this.selectedYear = this.currentDate.getFullYear();
+    this.selectedDate.setFullYear(number)
+    this.selectedYear = this.selectedDate.getFullYear();
   }
 
   selectMonth(number: number){
-    this.currentDate.setMonth(number)
-    this.selectedMonth = this.currentDate.toLocaleString('default', {month: 'long'});
+    this.selectedDate.setMonth(number)
+    this.selectedMonth = this.selectedDate.toLocaleString('default', {month: 'long'});
     console.log(this.getWeekDateArray())
   }
 
@@ -37,13 +38,13 @@ export class CalendarApp {
   }
 
   getMonthinDays(monthOffset: number = 1, dateOffset: number = 0){
-    return new Date(this.selectedYear, this.currentDate.getMonth()+monthOffset, 0).getDate()-dateOffset
+    return new Date(this.selectedYear, this.selectedDate.getMonth()+monthOffset, 0).getDate()-dateOffset
   }
 
   getWeekDateArray(){
     const weekDate: number[][] = []
     const daysOfMonth = this.getMonthinDays();
-    const weekday = new Date(this.selectedYear, this.currentDate.getMonth()).getDay();
+    const weekday = new Date(this.selectedYear, this.selectedDate.getMonth()).getDay();
     let week: number[] = []
 
     if(weekday !== 0){
