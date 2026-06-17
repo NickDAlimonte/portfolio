@@ -1,10 +1,95 @@
 table, th, td{
-    grid-template-columns: repeat(7, 1fr);
     border: 2px solid;
     border-collapse: collapse;
+    font-size: 1em;
 }
 
 table{
     place-self: center;
-    width: 80%;
+    width: 70%;
+    table-layout: fixed;
+}
+
+td{
+    height: 100px;
+}
+th{
+    font-size: clamp(0.5vw, 1.5vw, 1rem);
+}
+
+h1{
+    text-align: center;
+    font-size: clamp(1rem, 5vw, 3rem);
+}
+
+h2{
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+h3{
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+p{
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+
+.year-list{
+    list-style: none;
+    border: 2px solid black;
+    display: flex;
+    padding: 0;
+    margin: 8px;
+    gap: 15px;
+
+    width: 60%;
+    justify-self: center;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    button{
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font: inherit;
+        color: blue;
+        text-decoration: underline;
+        font-size: clamp(0.5rem, 2vw, 2rem);
+    }
+}
+
+.month-list{
+    list-style: none;
+    border: 2px solid black;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+
+    width: 40%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    justify-self: center;
+
+    button{
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font: inherit;
+        color: blue;
+        text-decoration: underline;
+        font-size: clamp(1rem, 3vw, 2rem);
+    }
+}
+
+.table-cell{
+    vertical-align: top;
 }

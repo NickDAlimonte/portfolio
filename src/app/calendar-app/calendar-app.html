@@ -2,25 +2,51 @@
 
 </div>
 
+<h1>Calendar</h1>
+<ul class="year-list">
+    @for (items of yearsList; track items){
+        <li><button type="button" (click)="selectYear(items)">{{ items }}</button></li>
+    }
+
+
+</ul>
+
+<ul class="month-list">
+    @for (items of monthList; track items){
+        <li><button type="button" (click)="selectMonth(items)">{{getMonthName(items)}}</button></li>
+    }
+</ul>
+<h2>{{selectedYear}}</h2>
+<h3>{{selectedMonth}}</h3>
 <div class="calendar">
-    <p>test</p>
     <table>
         <thead>
+
             <tr>
+                <th>Sunday</th>
                 <th>Monday</th>
                 <th>Tuesday</th>
                 <th>Wednesday</th>
                 <th>Thursday</th>
                 <th>Friday</th>
                 <th>Saturday</th>
-                <th>Sunday</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Data 1</td>
-                <td>data 2</td>
-            </tr>
+            @for(weeks of getWeekDateArray(); track $index){
+                <tr>
+                @for(days of weeks; track $index){
+                    <td class="table-cell">
+
+                        <span>{{days}}</span>
+                        @if(days === currentDate.getDate()){
+                            <p>Today!</p>
+                        }
+                    </td>
+                }
+                </tr>
+            }
+            
         </tbody>
     </table>
 
