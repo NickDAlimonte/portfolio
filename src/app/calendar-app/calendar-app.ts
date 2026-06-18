@@ -37,8 +37,8 @@ export class CalendarApp {
     return new Date(this.selectedYear, month, 1).toLocaleString('default', {month: 'long'})
   }
 
-  getMonthinDays(monthOffset: number = 1, dateOffset: number = 0){
-    return new Date(this.selectedYear, this.selectedDate.getMonth()+monthOffset, 0).getDate()-dateOffset
+  getMonthinDays(monthOffset: number = 1, monthStartDate: number = 0, dateOffset: number = 0){
+    return new Date(this.selectedYear, this.selectedDate.getMonth()+monthOffset, monthStartDate).getDate()-dateOffset
   }
 
   getWeekDateArray(){
@@ -63,6 +63,13 @@ export class CalendarApp {
     }
 
     if(week.length > 0){
+      let nextMonthDate: number = 1
+      console.log(week.length)
+      while (week.length < 7){
+        
+        week.push(this.getMonthinDays(2, nextMonthDate))
+        nextMonthDate ++;
+      }
       weekDate.push(week);
     }
 

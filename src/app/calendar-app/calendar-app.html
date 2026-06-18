@@ -36,10 +36,10 @@
             @for(weeks of getWeekDateArray(); track $index){
                 <tr>
                 @for(days of weeks; track $index){
-                    <td class="table-cell">
+                    <td class="table-cell" [class.weekend]="$index === 0 || $index === 6">
 
                         <span>{{days}}</span>
-                        @if(getMonthName(currentDate.getMonth()) == selectedDate.toLocaleString('default', {month: 'long'}) && days === selectedDate.getDate()){
+                        @if(getMonthName(currentDate.getMonth()) == selectedDate.toLocaleString('default', {month: 'long'}) && days === selectedDate.getDate() && currentDate.getFullYear() === selectedYear){
                             <p>Today!</p>
                         }
                     </td>
