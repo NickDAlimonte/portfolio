@@ -48,8 +48,8 @@ export class CalendarApp {
     let week: number[] = []
 
     if(weekday !== 0){
-      for(let daysAhead = 0; daysAhead < weekday; daysAhead++){
-        week.push(this.getMonthinDays(0, weekday-1-daysAhead))
+      for(let daysAhead = weekday - 1; daysAhead >= 0; daysAhead--){
+        week.push(this.getMonthinDays(0,-daysAhead))
       }
     }
 
@@ -64,7 +64,6 @@ export class CalendarApp {
 
     if(week.length > 0){
       let nextMonthDate: number = 1
-      console.log(week.length)
       while (week.length < 7){
         
         week.push(this.getMonthinDays(2, nextMonthDate))

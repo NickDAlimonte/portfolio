@@ -33,14 +33,18 @@
             </tr>
         </thead>
         <tbody>
-            @for(weeks of getWeekDateArray(); track $index){
+            @for(weeks of getWeekDateArray(); track $index; let weekIndex = $index){
                 <tr>
                 @for(days of weeks; track $index){
-                    <td class="table-cell" [class.weekend]="$index === 0 || $index === 6">
-
+                    <td class="table-cell" 
+                    [class.weekend]="$index === 0 || $index === 6"
+                    [class.prev-follow-month]="(weekIndex < 1 && days > 10) || (weekIndex > 2 && days < 10)"
+                    >
                         <span>{{days}}</span>
                         @if(getMonthName(currentDate.getMonth()) == selectedDate.toLocaleString('default', {month: 'long'}) && days === selectedDate.getDate() && currentDate.getFullYear() === selectedYear){
-                            <p>Today!</p>
+                            <ul>
+                                <li style="font-size: 2em;">Today!</li>
+                            </ul>
                         }
                     </td>
                 }
