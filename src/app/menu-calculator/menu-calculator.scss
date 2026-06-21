@@ -1,0 +1,39 @@
+.menu-component{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-width: 100%;
+    min-height: 100vh;
+    align-items: start;
+}
+
+table, th, td{
+    border: solid 2px;
+    border-collapse: collapse;
+    margin-right: 16px;
+}
+
+.pizza-table{
+    width: 40vw;
+    td{
+        height: 60px;
+    }
+}
+
+td{
+    overflow: hidden;
+
+}
+
+h1{
+    justify-self: center;
+    font-size: 3em;
+}
+
+.dinners{
+    border: solid 2px;
+}
+
+.salads{
+    border: solid 2px;
+    align-self: start;
+}
